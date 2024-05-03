@@ -57,9 +57,12 @@ const Complain = require('../models/complainSchema.js');
 
 const adminRegister = async (req, res) => {
     try {
+        console.log(req.body);
         const admin = new Admin({
             ...req.body
         });
+
+
 
         const existingAdminByEmail = await Admin.findOne({ email: req.body.email });
         const existingSchool = await Admin.findOne({ schoolName: req.body.schoolName });
